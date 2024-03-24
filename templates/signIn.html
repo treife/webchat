@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width:=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="static/style.css">
+
+    <title>Chat - Sign In</title>
+
+    <style>
+        #central-frame {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: antiquewhite;
+            border-radius: 6px;
+        }
+
+        .panel-btn {
+            border: none;
+            color: dimgray;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .sign-in-input {
+            padding: 12px 20px;
+            margin: 18px 0 0 22px;
+            border: none;
+        }
+
+        #sign-in-btn {
+            width: 100%;
+            padding: 12px 20px;
+            border: none;
+            margin: 0 22px;
+            color: dimgray;
+        }
+
+        .full-width-container {
+            display: inline-block;
+        }
+
+        .sign-up-input {
+            padding: 12px 20px;
+            margin: 18px 0 0 22px;
+            width: calc(100% - 44px);
+            border: none;
+        }
+
+        #sign-up-btn {
+            width: calc(100% - 44px);
+            padding: 12px 20px;
+            border: none;
+            margin: 12px 22px 0 22px;
+            color: dimgray;
+        }
+    </style>
+
+    <script>
+        function showSignInForm(ctx={}) {
+            const templ = `
+<form action="/signIn" method="post">
+    <input class="sign-in-input" name="login" required placeholder="Login">
+    <input class="sign-in-input" name="password" required placeholder="Password" type="password">
+    <div class="full-width-container">
+        <button id="sign-in-btn" type="submit">Sign In</button>
+    </div>
+</form>`
+
+            document.getElementById('form-div').innerHTML = templ
+            document.getElementById('error-message').innerText = ctx['error'] ?? ''
+        }
+        function showSignUpForm(ctx={}) {
+            const templ = `
+<form action="/signUp" method="post">
+    <div class="full-width-container">
+        <input class="sign-up-input" name="login" required placeholder="Login">
+        <input class="sign-up-input" name="nickname" required placeholder="Nickname">
+        <input class="sign-up-input" name="password" required placeholder="Password" type="password">
+        <input class="sign-up-input" name="master_password" required placeholder="Master Password" type="password">
+        <button id="sign-up-btn" type="submit">Sign Up</button>
+    </div>
+</form>`
+            document.getElementById('form-div').innerHTML = templ
+            document.getElementById('error-message').innerText = ctx['error'] ?? ''
+        }
+    </script>
+</head>
+<body>
+    <div id="central-frame" style="width: 40%;">
+        <div class="row">
+            <div class="col-6">
+                <button class="panel-btn" style="width: 100%; height: 100%" onclick="showSignInForm()">Sign In</button>
+            </div>
+            <div class="col-6">
+                <button class="panel-btn" style="width: 100%; height: 100%" onclick="showSignUpForm()">Sign Up</button>
+            </div>
+            <div class="col-12" id="form-div">
+
+            </div>
+            <div class="col-12"><p id="error-message">{{ error }}</p></div>
+        </div>
+    </div>
+
+    <script>
+        {{ initialForm | safe }}
+    </script>
+</body>
+</html>

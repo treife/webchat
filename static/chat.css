@@ -1,0 +1,316 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+#me-avatar {
+    border-radius: 50%;
+    background-color: gray;
+    display: inline-block;
+}
+#me-avatar:hover { opacity: 0.6; }
+
+#me-nickname {
+    padding-top: 0;
+    padding-left: 6px;
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 20px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    width: 10vw;
+}
+
+#sign-out {
+    color: aliceblue;
+    text-decoration: none;
+    padding-left: 6px;
+    font-size: 12px;
+    user-select: none;
+}
+
+#me-info {
+    padding-top: 12px;
+    padding-left: 12px;
+    height: 10vh;
+    background-color: #444444;
+}
+
+#me-details {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#channel-list {
+    background-color: #555555;
+}
+
+.channel-btn {
+    width: calc(100% - 10px);
+    text-align: left;
+    padding: 12px 22px;
+    border: none;
+    background-color: #555555;
+    margin: 5px 5px 0 5px;
+    color: lightgray;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 4px;
+}
+.channel-btn:hover {
+    background-color: #444444;
+}
+.channel-btn:active {
+    background-color: #404040;
+}
+.channel-btn-cur { background-color: #424242; }
+
+#main-panel {
+    height: 100vh;
+    background-color: #666666;
+}
+
+#message-list {
+    height: 90%;
+    overflow-y: scroll;
+}
+
+#message-input-status-bar {
+    z-index: 998;
+    height: 3vh;
+    width: calc(66.66% - 24px);
+    top: calc(100% - 13vh);
+    margin-left: 12px;
+    margin-right: 12px;
+    background-color: #444444;
+    position: absolute;
+    border-radius: 2px;
+    display: none;
+}
+#message-input-status-bar:hover { background-color: #494949; }
+
+#message-input-container {
+    position: relative;
+    box-sizing: border-box;
+    height: 10%;
+}
+#message-input {
+    background-color: #404040;
+    width: calc(100% - 22px);
+    height: calc(100% - 18px);
+    padding: 12px 12px 12px;
+    margin: 1% 12px 0 12px;
+    font-size: 14px;
+    border: none;
+    color: lightgray;
+    outline: none;
+    resize: none;
+}
+
+.msg-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 5px;
+    padding-top: 8px;
+    padding-left: 9px;
+}
+.msg-container:hover {
+    background-color: #616161;
+}
+
+.msg-container.mentions-me { background-color: #115151; }
+.msg-container.mentions-me:hover { background-color: #114141; }
+
+.msg-author-avatar {
+    border-radius: 50%;
+    background-color: gray;
+    display: inline-block;
+}
+.msg-author-avatar:hover { opacity: 0.6; }
+
+.msg-author-name {
+    vertical-align: top;
+    padding-top: 0;
+    padding-left: 6px;
+    display: inline-block;
+    margin-top: 3px;
+    font-size: 16px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.msg-created-at {
+    vertical-align: top;
+    display: inline-block;
+    color: lightgray;
+    font-size: 12px;
+    padding-top: 0;
+    padding-left: 6px;
+    margin-top: 6px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.msg-content {
+    display: inline-block;
+    color: floralwhite;
+    text-align: left;
+    margin-top: 3px;
+    padding-left: 6px;
+}
+
+.msg-updated-at {
+    color: #999999;
+    font-size: 12px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+    display: inline;
+    padding-left: 6px;
+}
+
+.msg-actions {
+    z-index: 1;
+    display: none;
+    margin-right: 10px;
+
+    position: absolute;
+    left: 90%;
+
+    background-color: #535353;
+    border: thin solid #444444;
+    border-radius: 10%;
+    padding: 0;
+}
+
+.msg-container:hover .msg-actions {
+    display: inline;
+}
+
+.msg-actions-item {
+    display: none;
+    font-size: 24px;
+    border-radius: 5px;
+    width: 24px;
+    height: 100%;
+    text-align: center;
+    color: lightgray;
+}
+.msg-actions-item:hover {
+    background-color: #595959;
+}
+.msg-actions-item:active {
+    background-color: #777777;
+}
+
+#message-input-status-bar-exit {
+    z-index: 999;
+    border-radius: 50%;
+    background-color: #666666;
+    width: calc(3vh - 4px);
+    height: calc(3vh - 4px);
+    top: 50%;
+    /*transform: translate(0, -50%);*/
+    /* margin-left: auto; */
+    margin: 2px 2px 2px auto;
+    /* position: relative; */
+    /* margin-right: 4px; */
+    text-align: center;
+    font-weight: 800;
+    color: #393939;
+    font-size: 2.5vh;
+    padding: 0;
+}
+#message-input-status-bar-exit:hover { background-color: #777777; }
+#message-input-status-bar-exit:active { background-color: #515151; }
+#message-input-status-bar .wrap {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    /* margin-top: 5px; */
+}
+#message-input-status-bar .wrap:last-child { margin-left: auto; }
+#message-input-status-bar .wrap .text {
+    transform: translate(-2.6%, -15.4%);
+    font-size: calc(3vh - 4px);
+    display: inline-block;
+}
+
+#message-input-status-bar .info {
+    padding-top: 0.5%;
+    padding-left: 3px;
+    color: floralwhite;
+}
+#message-input-status-bar .content {
+    padding-top: 0.5%;
+    padding-left: 3px;
+    color: #999999;
+    width: 80%;
+    overflow-x: clip;
+}
+
+#me-edit {
+    color: antiquewhite;
+    display: inline;
+    padding-left: 5px;
+    font-size: 18px;
+    user-select: none;
+}
+#me-edit:hover { color: #eadda7; }
+#me-edit:active { color: antiquewhite; }
+
+#upload-files {
+    position: absolute;
+    top: 11px;
+    right: 15px;
+    color: antiquewhite;
+    display: inline;
+    padding-left: 5px;
+    font-size: 18px;
+    user-select: none;
+}
+#upload-files:hover { color: #eadda7; }
+#upload-files:active { color: antiquewhite; }
+
+#upload-files-hdn { display: none; }
+
+.image-preview {
+    width: 100px;
+    height: 100px;
+}
+
+.attachments-container {
+    margin-top: 3px;
+    padding-left: 6px;
+}
+
+.ref-msg-container {
+    padding-top: 2px;
+    border-radius: 18%;
+    padding-left: 6px;
+    margin-right: 6px;
+    display: none;
+    vertical-align: top;
+    padding-bottom: 4px;
+}
+.ref-msg-container:hover { background-color: #595959; }
+.ref-msg-container.mentions-me:hover { background-color: #105050; }
+.ref-msg-avatar {
+    border-radius: 50%;
+    width: 18px;
+}
+.ref-msg-nickname {
+    color: antiquewhite;
+    font-size: 14px;
+    vertical-align: top;
+}
+.ref-msg-content {
+    color: #efeae0;
+    font-size: 13px;
+    vertical-align: top;
+    padding-bottom: 4px;
+}

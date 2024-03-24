@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width:=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="static/chat.css">
+    <script src="/static/ws.js" defer></script>
+    <script src="/static/api.js" defer></script>
+    <script src="/static/chat.js" defer></script>
+
+    <title>Chat</title>
+</head>
+<body>
+    <template id="message-list-entry-templ">
+        <div class="msg-container">
+            <div class="ref-msg-container">
+                <img class="ref-msg-avatar">
+                <a class="ref-msg-nickname"></a>
+                <a class="ref-msg-content"></a>
+            </div>
+            <img class="msg-author-avatar">
+            <div style="display: inline-block; vertical-align: top; width: 90%;">
+                <a class="msg-author-name"></a>
+                <a class="msg-created-at"></a><br>
+                <a class="msg-content" style="overflow-wrap: anywhere;"></a>
+                <a class="msg-updated-at"></a>
+            </div>
+            <div class="msg-actions">
+                <span onclick="Controller.setReplyingTo(event)" class="msg-actions-item reply" style="display: inline-block">↩</span>
+                <span onclick="Controller.editMessage(event)" class="msg-actions-item edit">🖉</span>
+                <span onclick="Controller.deleteMessage(event)" class="msg-actions-item delete" style="color: red;">🗑</span>
+            </div>
+        </div>
+    </template>
+
+    <template id="channel-btn-templ">
+        <button class="channel-btn"><a class="name"></a></button>
+    </template>
+
+    <div class="row">
+        <div class="col-2" style="height: 100vh;">
+            <div id="channel-list" style="height: 90vh;"></div>
+            <div id="me-info">
+                <img id="me-avatar" src="" alt="">
+                <div id="me-details">
+                    <p id="me-nickname"></p><br>
+                    <a id="sign-out" onclick="Controller.signOut()" href="#">Sign Out</a>
+                    <p id="me-edit">⚙</p>
+                </div>
+            </div>
+        </div>
+        <div id="main-panel" class="col-8">
+            <div id="message-input-status-bar">
+                <div class="wrap">
+                    <a class="info"></a>
+                    <a class="content"></a>
+                    <div id="message-input-status-bar-exit" onclick="Controller.setNormalMode(event)">
+                        <a class="text">X</a>
+                    </div>
+                </div>
+            </div>
+            <div id="message-list" onscroll="Controller.messageListOnScroll(this)"></div>
+            <div id="message-input-container">
+                <input id="upload-files-hdn" type="file" multiple onchange="Controller.fileUploadOnChange(this)">
+                <a id="upload-files" onclick="Controller.showFileUploadDialog()">+</a>
+
+                <textarea id="message-input" onkeydown="Controller.messageInputOnKeydown(event)"></textarea>
+            </div>
+        </div>
+        <div class="col-2" style="height: 100vh; background-color: #555555;">
+            <!--
+            <div style="height: 5vh">
+                labels
+            </div>
+            <div style="height: 95vh">
+                panel
+            </div>
+            -->
+            <a style="font-size: 48px; color: #888888; writing-mode: vertical-rl; user-select: none; padding: 10px 0 0 10px;">TODO</a>
+        </div>
+    </div>
+</body>
+</html>
